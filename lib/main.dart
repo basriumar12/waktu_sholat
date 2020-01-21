@@ -293,6 +293,7 @@ class MainState extends State<Main> {
     setState(() {});
   }
 
+  //get data time
   Future<Map<String, dynamic>> getJadwalSholat(double lat, double lng) async {
     if (lat == null || lng == null) return null;
     Map<String, String> paramsJadwal = {
