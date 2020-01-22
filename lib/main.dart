@@ -70,6 +70,7 @@ class MainState extends State<Main> {
     );
   }
 
+  // detail jadwal
   Widget detailJadwal() {
     return Container(
       height: 150.0,
@@ -271,10 +272,6 @@ class MainState extends State<Main> {
     initPosition();
   }
 
-  //===============================================================================
-  //Created by Mochamad Nizwar Syafuan
-  //email : nizwar@merahputih.id
-  //===============================================================================
 
   //Disini bagian backend =========================================================
   void reset() {
@@ -293,7 +290,7 @@ class MainState extends State<Main> {
     setState(() {});
   }
 
-  //get data time
+  //get data time dengan fetch api
   Future<Map<String, dynamic>> getJadwalSholat(double lat, double lng) async {
     if (lat == null || lng == null) return null;
     Map<String, String> paramsJadwal = {
