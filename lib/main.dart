@@ -10,6 +10,7 @@ void main() {
   return runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: "Waktu Sholat",
+
     home: Main(),
   ));
 }
@@ -27,12 +28,7 @@ class MainState extends State<Main> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
 
-        title: Text("Waktu Sholat"),
-        backgroundColor: Colors.amber,
-
-      ),
 
       backgroundColor: Colors.black,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -44,7 +40,7 @@ class MainState extends State<Main> {
 
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/log.png"), fit: BoxFit.cover)),
+                image: AssetImage("assets/images/kabah.jpg"), fit: BoxFit.cover)),
         child: Stack(
           children: <Widget>[
             //blurBackground(),
@@ -83,17 +79,14 @@ class MainState extends State<Main> {
             height: 50.0,
             width: 50.0,
             child: CircleAvatar(
-              backgroundColor: Colors.orange,
-              child: Icon(
-                selected.icon,
-                color: Colors.white,
-              ),
+              backgroundColor: Colors.blue,
+              child: selected.icon,
             ),
           ),
           Text(
             selected.waktu,
             style: TextStyle(
-                color: Colors.orange,
+                color: Colors.blue,
                 fontWeight: FontWeight.bold,
                 fontSize: 25.0),
           ),
@@ -150,37 +143,38 @@ class MainState extends State<Main> {
       padding: EdgeInsets.symmetric(vertical: 5.0),
       itemBuilder: (context, index) {
         Map<String, dynamic> dataWaktu = data["data"]["timings"];
-        IconData logo = Logo.moon;
+        Icon logo ;
         switch (dataWaktu.keys.toList()[index].toLowerCase()) {
           case "fajr":
-            logo = Logo.cloud;
+            logo = Icon(Icons.timer);
             break;
           case "sunrise":
-            logo = Logo.sunrise;
+            logo = Icon(Icons.timer);
             break;
           case "dhuhr":
-            logo = Logo.sun;
+            logo = Icon(Icons.timer);
             break;
           case "asr":
-            logo = Logo.cloud_sun;
+            logo = Icon(Icons.timer);
             break;
           case "sunset":
-            logo = Logo.sunrise;
+            logo = Icon(Icons.timer);
             break;
           case "maghrib":
-            logo = Logo.sunrise;
+            logo = Icon(Icons.timer);
             break;
           case "isha":
-            logo = Logo.moon;
+            logo = Icon(Icons.timer);
             break;
           case "imsak":
-            logo = Logo.moon;
+            logo = Icon(Icons.timer);
             break;
           case "midnight":
-            logo = Logo.cloud_moon;
+            logo = Icon(Icons.timer);
             break;
           default:
-            logo = Logo.cloud;
+            logo = Icon(Icons.timer);
+
             break;
         }
         //Biar ada ripple effectnya
@@ -197,11 +191,8 @@ class MainState extends State<Main> {
               });
             },
             leading: CircleAvatar(
-              child: Icon(
-                logo,
-                color: Colors.white,
-              ),
-              backgroundColor: Colors.orange,
+              child: logo,
+              backgroundColor: Colors.blue,
             ),
             title: Text(
               dataWaktu.keys.toList()[index],
@@ -211,7 +202,7 @@ class MainState extends State<Main> {
               dataWaktu.values.toList()[index],
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.orange,
+                  color: Colors.blue,
                   fontSize: 20.0),
             ),
           ),
@@ -238,9 +229,9 @@ class MainState extends State<Main> {
       child: FlatButton(
         shape:
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        color: Colors.orange,
+        color: Colors.blue,
         child: Text(
-          "Refresh",
+          "Refresh Data",
           style: TextStyle(color: Colors.white, fontSize: 18.0),
         ),
         onPressed: () {
@@ -311,7 +302,7 @@ class MainState extends State<Main> {
 }
 
 class JadwalSholat {
-  final IconData icon;
+  final Icon icon;
   final String judul, waktu, tanggal;
 
   JadwalSholat(this.icon, this.judul, this.waktu, this.tanggal);
