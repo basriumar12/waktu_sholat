@@ -100,7 +100,7 @@ class MainState extends State<Main> {
       ),
     );
   }
-
+//shimmer data
   Widget listShimmer() {
     return ListView.builder(
       physics: ClampingScrollPhysics(),
